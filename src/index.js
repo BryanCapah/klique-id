@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import store from './store/store'
+import store from './stores/store'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ChakraProvider theme={extendTheme({
+        useSystemColorMode: false,
+        initialColorMode: "light",
+      })}>
+        <App />
+      </ChakraProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

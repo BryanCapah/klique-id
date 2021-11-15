@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+#c-data-table{
+  cursor: default;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#c-data-table tr:nth-child(odd){
+  transition: all 0.2s ease-in !important;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#c-data-table tr:nth-child(even){
+      transition: all 0.2s ease-in !important;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+#c-data-table tr:hover{
+      background-color: rgb(200, 200, 200,0.3) !important;
+      transition: all 0.2s ease-in !important;    
+}
+/* 
+.chakra-select__icon-wrapper {
+  display: none !important;
+} */
+
+@keyframes fadeIn {
+  0% { opacity: 0}
+  100% {opacity: 1}
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes an-left {
+  0%{ margin-left:50px}
+  100%{margin-left: 0px}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.an-fade{
+  animation: fadeIn 1s, an-left 0.5s;
 }

@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+
+import { lazy, memo, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
 
 function App() {
+  const TodoList = lazy(() => import('./screens/todo-list'))
+  const TodoDetail = lazy(() => import('./screens/todo-detail'))
+  const Loading = () => <div></div>
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='w-full flex justify-center p-10'>
+      <div className='App md:w-1/3 w-full'>
+        <Router>
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route
+                exact
+                path='/'
+                name='Todo List'
+                element={<TodoList />}
+              />
+              <Route
+                exact
+                path='/:id'
+                name='Todo Detail'
+                element={<TodoDetail />}
+              />
+            </Routes>
+          </Suspense>
+        </Router>
+      </div>
     </div>
+
   );
 }
 
-export default App;
+export default memo(App);
