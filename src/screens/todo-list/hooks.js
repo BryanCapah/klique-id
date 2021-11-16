@@ -61,12 +61,11 @@ export const useTodoList = () => {
 }
 
 export const useTodoCreate = ({ onClick, todo, activeTodo }) => {
-    console.log(todo, activeTodo);
     const item = todo?.filter((data, idx) => idx === activeTodo)[0]
     const [create, setCreate] = useState({
         name: item?.name,
         description: item?.description,
-        id: `item-${todo?.length}`
+        id: item?.id || `item-${todo?.length}`
     })
 
 
