@@ -1,1 +1,0 @@
-{"version":3,"sources":["screens/todo-detail/index.jsx"],"names":["TodoDetail"],"mappings":"mJAAe,SAASA,IACpB,OAAO","file":"static/js/4.088b20b5.chunk.js","sourcesContent":["export default function TodoDetail() {\n    return <div>detail</div>\n}"],"sourceRoot":""}
