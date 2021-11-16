@@ -103,7 +103,11 @@ export const useTodoCreate = ({ onClick, todo, activeTodo }) => {
 }
 
 export const useDraggable = ({ todo, setTodo }) => {
+    const { colorMode } = useColorMode()
+    const isDark = colorMode === 'dark'
+
     const getListStyle = isDraggingOver => ({
+        transition: 'all ease 0.3s',
         background: isDraggingOver ? "#3B81F6" : "lightgrey",
         padding: grid,
         width: '100%',
@@ -111,10 +115,12 @@ export const useDraggable = ({ todo, setTodo }) => {
     });
 
     const getItemStyle = (isDragging, draggableStyle) => ({
+        transition: 'all ease 0.3s',
         userSelect: "none",
         padding: grid * 2,
         margin: `0 0 ${grid}px 0`,
-        background: isDragging ? "lightgrey" : "white",
+        color: isDragging && isDark && '#3B81F6',
+        background: isDragging ? "lightgrey" : (isDark ? '#3B81F6' : "white"),
         borderRadius: '7px',
         ...draggableStyle
     });
